@@ -16,7 +16,7 @@ make api-stubs-docs || echo no problem, we need ccache
 make hiddenapi-lists-docs || echo no problem, we need ccache
 make system-api-stubs-docs || echo no problem we need ccache
 make test-api-stubs-docs || echo no problem, we need ccache
-make aex -j10 & # dont remove that '&'
+make bacon -j10 & # dont remove that '&'
 sleep 85m
 kill %1
 ccache -s
@@ -24,17 +24,17 @@ ccache -s
 
 
 # upload function for uploading rom zip file! I don't want unwanted builds in my google drive haha!
-#up(){
-#	curl --upload-file $1 https://transfer.sh/$(basename $1); echo
-#	# 14 days, 10 GB limit
-#}
+up(){
+	curl --upload-file $1 https://transfer.sh/$(basename $1); echo
+	# 14 days, 10 GB limit
+}
 
-#tg(){
-#	bot_api=1549761840:AAF45qhYn8PE3FeRcHPRDbfuJp1ZBGFTNdc # Your tg bot api, dont use my one haha
-#	your_telegram_id=$1 # No need to touch 
-#	msg=$2 # No need to touch
-#	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}"
-#}
+tg(){
+	bot_api=1549761840:AAF45qhYn8PE3FeRcHPRDbfuJp1ZBGFTNdc # Your tg bot api, dont use my one haha
+	your_telegram_id=$1 # No need to touch 
+	msg=$2 # No need to touch
+	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}"
+}
 
 id=697787441 # Your telegram id
 
